@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function validate(){
+		var v1=document.getElementById("n1").value;
+		var v2=document.getElementById("n2").value;
+		var v3=document.getElementById("n3").value;
+		//var v4=document.getElementById("n4").value;
+	//   var v4=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,10}$/;
+	}
+	function generateCaptcha(){
+		var v=parseInt((Math.random())*10000);
+		document.getElementById("result").innerHTML="<input type=text disabled id=nb value="+v+"><input type=button value=refresh onClick=generateCaptcha()><br> enter above no<input type=text id=cc1><input type=button value=validate onclick=captchavalidate()>";	
+	}
+	function captchavalidate(){
+		var v1=document.getElementById("nb").value;
+		var v2=document.getElementById("cc1").value;
+		if(v1==v2){
+			document.getElementById("bb").disabled=false;
+		}
+		//&&inputtxt.match(".*[a-z].*")&&inputtxt.match(".*\d.*")
+	}
+	function pwdvalidate(){
+		var inputtxt=document.getElementById("password").value;
+		var pswdstrength=document.getElementById("pswdstrength");
+		//var strength=inputtxt.length;//note :.length and not .length()
+		if(inputtxt.match(".*[A-Z].*")&&inputtxt.match(".*[a-z].*")&&inputtxt.match(".*[0-9].*")){
+			if(inputtxt.length>=4 && inputtxt.length<6){
+				//alert("weak")
+				pswdstrength.innerHTML="&nbsp;weak";
+				 pswdstrength.style.color="red";
+			}
+			else if(inputtxt.length>=6 && inputtxt.length<=8){
+				//alert("moderate")
+				pswdstrength.innerHTML="&nbsp;moderate";
+				 pswdstrength.style.color="orange";
+			}
+			else if(inputtxt.length>=8){
+				//alert("strong")
+				pswdstrength.innerHTML="&nbsp;strong";
+				 pswdstrength.style.color="green";
+			}
+			else{
+				//alert("invalid password")
+				pswdstrength.innerHTML="&nbsp;invalid password";
+			}
+		}
+		else{
+			//alert("invalid password")
+			pswdstrength.innerHTML="&nbsp;invalid password";
+		}
+		// inside body content just commented <input type=button name=pwdvalidate id="pp" onclick="pwdvalidate()" required onBlur="generateCaptcha()"><br>
+	      //  </div>
+   }
+	function dynamicdropdown(listindex)
+    {
+        switch (listindex)
+        {
+        case "America" :
+            document.getElementById("state").options[0]=new Option("Select state","");
+            document.getElementById("state").options[1]=new Option("Texas","Texas");
+            document.getElementById("state").options[2]=new Option("Howdy","Howdy");
+            break;
+        case "India" :
+            document.getElementById("state").options[0]=new Option("Select state","");
+            document.getElementById("state").options[1]=new Option("Delhi","Delhi");
+            document.getElementById("state").options[2]=new Option("Chennai","Chennai");
+            break;
+        }
+        return true;
+        //even if we dont write return true it will work fine
+      
+    }
+</script>
+</head>
+<body>
+
+	<p align="center"> HTML JS Assignment</p>
+	<center>
+	<form action="AssignmentServlet" method=""> 
+	Name : <input type=text name=name id="n1" class="nn" required pattern="[^0-9][A-Za-z0-9_#]*$"><br>
+	<!Name : input type=text name=name id="n1" class="nn" required pattern="[a-zA-Z][a-z][A-Z0-9-_\.]{1,20}$">
+	Email : <input type=email name=email id="n2" required> <br>
+   <! Phone :input type=text name=phone id="n2" required pattern="[\+]\d{2}[\-]d{10}$"><br>
+   Phone :<input type=text name=phone id="n3" required pattern="^\d{10}$"><br>
+<div id="Address">Address:</div>
+   <div class="category_div" id="category_div">Country:
+        <select id="country" name="country" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+        <option value="">Select country</option>
+        <option value="America">America</option>
+        <option value="India">India</option>
+        </select>
+    </div>
+    <div class="sub_category_div" id="sub_category_div">State:
+        <script type="text/javascript" language="JavaScript">
+        document.write('<select name="state" id="state"><option value="">Select state</option></select>')
+        </script>
+        <noscript>
+        <select id="state" name="state">
+            <option value="Texas">Texas</option>
+            <option value="Delhi">Delhi</option>
+        </select>
+        </noscript>
+    </div>
+   <div class="form-group">
+                    <label for="exampleInputPassword1" >Password</label>
+                    <input type="password" id="password" onkeyup="pwdvalidate()"  class="form-control" id="exampleInputPassword1" placeholder="Password" required onBlur="generateCaptcha()">
+                    <p id="pswdstrength" style="color: red;"> &nbsp;  </p>
+   </div>
+   
+   
+  <div id="result"></div>
+  
+  <input type=submit value=Register id=bb onclick="validate()" disabled> <br>
+  </form>
+  </center>
+</body>
+</html>

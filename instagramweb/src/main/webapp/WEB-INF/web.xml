@@ -1,0 +1,77 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>RegisServlet</servlet-name>
+  	<display-name>RegisServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.instagramweb.controller.RegisServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+  	<display-name>Login</display-name>
+  	<description></description>
+  	<servlet-class>com.instagramweb.controller.Login</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>InstagramDAO</servlet-name>
+  	<display-name>InstagramDAO</display-name>
+  	<description></description>
+  	<servlet-class>com.instagramweb.InstagramDAO</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>InstagramDao</servlet-name>
+  	<display-name>InstagramDao</display-name>
+  	<description></description>
+  	<servlet-class>com.instagramweb.dao.InstagramDao</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>InstagramDaoInterface</servlet-name>
+  	<display-name>InstagramDaoInterface</display-name>
+  	<description></description>
+  	<servlet-class>com.instagramweb.dao.InstagramDaoInterface</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>InstagramUser</servlet-name>
+  	<display-name>InstagramUser</display-name>
+  	<description></description>
+  	<servlet-class>com.instagramweb.entity.InstagramUser</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DAOFactory</servlet-name>
+  	<display-name>DAOFactory</display-name>
+  	<description></description>
+  	<servlet-class>com.instagramweb.utility.DAOFactory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RegisServlet</servlet-name>
+  	<url-pattern>/RegisServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Login</servlet-name>
+  	<url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InstagramDAO</servlet-name>
+  	<url-pattern>/InstagramDAO</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InstagramDao</servlet-name>
+  	<url-pattern>/InstagramDao</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InstagramDaoInterface</servlet-name>
+  	<url-pattern>/InstagramDaoInterface</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InstagramUser</servlet-name>
+  	<url-pattern>/InstagramUser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DAOFactory</servlet-name>
+  	<url-pattern>/DAOFactory</url-pattern>
+  </servlet-mapping>
+</web-app>
