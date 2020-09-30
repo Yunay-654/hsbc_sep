@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+function validate(){
+	var v=document.getElementById("nn").value;
+	//step1 how to get xhr
+	var x=new XMLHttpRequest();
+	//step2 how xhr will open connection with server
+	x.open("GET","my.jsp?name="+v,true);
+	//step3 how xhr will send request
+	x.send();
+	//step4 how xhr will get response from server
+	//state={0,1,2,3}
+	x.onreadystatechange=function(){
+		if(x.readyState==4){
+			var vv=x.responseText;
+			document.getElementById("rr").innerHTML=vv;
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<form method="post" action="">
+   Name: <input type=text id="nn" onkeyup="validate()">
+</form>
+</body>
+</html>
